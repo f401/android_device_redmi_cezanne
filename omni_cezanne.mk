@@ -8,13 +8,17 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+​$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
 
 # Inherit from cezanne device
 $(call inherit-product, device/xiaomi/cezanne/device.mk)
-
+ 
+ ​$(call inherit-product, vendor/twrp/config/common.mk) 
+  
+ ​#​ Inherit from AOSP base config 
+ ​$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 PRODUCT_DEVICE := cezanne
 PRODUCT_NAME := omni_cezanne
 PRODUCT_BRAND := Redmi
