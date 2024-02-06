@@ -123,18 +123,17 @@ TW_INCLUDE_RESETPROP​ := true
 
 #​ Crypto 
 TW_INCLUDE_CRYPTO​ := true 
-  
+
 #​ Additional binaries & libraries needed for recovery 
 TARGET_RECOVERY_DEVICE_MODULES​ += ​\
  ​    libkeymaster4 ​\
  ​    libkeymaster41 ​\
  ​    libpuresoftkeymasterdevice 
-  
+
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES​ += ​\
  ​    ​$(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so ​\
  ​     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so ​\
  ​    ​$(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
  
- 
-​#​ Fstab 
+#​ Fstab 
 TARGET_RECOVERY_FSTAB​ := ​$(DEVICE_PATH)/recovery.fstab
