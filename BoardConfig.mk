@@ -76,6 +76,15 @@ BOARD_SUPER_PARTITION_GROUPS := xiaomi_dynamic_partitions
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor product
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 7568248780
 
+ 
+#​ File systems 
+BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE​ := f2fs 
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE​ := ext4 
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE​ := ext4 
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE​ := ext4 
+TARGET_USERIMAGES_USE_EXT4​ := true 
+TARGET_USERIMAGES_USE_F2FS​ := true
+
 # Platform
 TARGET_BOARD_PLATFORM := mt6885
 
@@ -107,3 +116,25 @@ TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
+TW_INCLUDE_REPACKTOOLS​ := true 
+TW_EXCLUDE_DEFAULT_USB_INIT​ := true 
+RECOVERY_SDCARD_ON_DATA​ := true 
+TW_INCLUDE_RESETPROP​ := true
+
+#​ Crypto 
+TW_INCLUDE_CRYPTO​ := true 
+  
+#​ Additional binaries & libraries needed for recovery 
+TARGET_RECOVERY_DEVICE_MODULES​ += ​\ 
+ ​    libkeymaster4 ​\ 
+ ​    libkeymaster41 ​\ 
+ ​    libpuresoftkeymasterdevice 
+  
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES​ += ​\ 
+ ​    ​$(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so ​\ 
+ ​     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so ​\ 
+ ​    ​$(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
+ 
+ 
+​#​ Fstab 
+TARGET_RECOVERY_FSTAB​ := ​$(DEVICE_PATH)/recovery.fstab

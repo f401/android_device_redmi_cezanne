@@ -6,3 +6,5 @@
 #
 
 LOCAL_PATH := device/xiaomi/cezanne
+
+TW_INCLUDE_FASTBOOTD​ := true
